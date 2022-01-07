@@ -214,7 +214,7 @@ function mesesDelAño(array) {
   var mesesBuscados = [];
   for (var i = 0; i < array.length; i++){
     if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre'){
-      mesesBuscados += array[i];
+      mesesBuscados.push(array[i]);
     }
   }
   if (mesesBuscados.length === 3){
@@ -232,7 +232,7 @@ function mayorACien(array) {
   var newArray = [];
   for (var i = 0; i < array.length; i++){
     if (array[i] > 100){
-      newArray += array[i];
+      newArray.push(array[i]);
     }
   }
   return newArray;
@@ -247,7 +247,19 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-
+  var array = [];
+  var i = 0;
+  while(i < 10){
+    if (i === 0){
+      array.push(numero + 2);
+    }else if (array[i - 1] === i - 1){
+      return "Se interrumpió la ejecución";
+    }else{
+      array.push(array[i - 1] + 2);
+    }
+  i++;
+  }
+  return array;
 }
 
 
@@ -258,6 +270,17 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var array = [];
+  var producto = numero;
+  for (var i = 0; i < 10; i++){
+    if (i === 5){
+      continue;
+    }else{
+      producto = producto + 2;
+      array.push(producto);
+    }
+  }
+  return array;
 }
 
 
